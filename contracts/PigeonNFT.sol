@@ -1,13 +1,23 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.8.4;
+
+pragma solidity ^0.8.4;
 
 import "./ERC721Tradable.sol";
 
-contract PigeonNFT is ERC721Tradable {
-    constructor(
-        string memory _name,
-        string memory _symbol,
-        uint256 _maxSupply,
-        address _proxyRegistryAddress
-    ) ERC721Tradable(_name, _symbol, _maxSupply, _proxyRegistryAddress) {}
+/**
+ * @title Pigeon NFT
+ *
+ */
+contract Creature is ERC721Tradable {
+    constructor(address _proxyRegistryAddress) ERC721Tradable("Creature", "OSC", _proxyRegistryAddress) {}
+
+    string public baseURI;
+
+    function baseTokenURI() public view override returns (string memory) {
+        return baseURI;
+    }
+
+    function setBaseTokenURI(string memory _newBaseURI) public onlyOwner {
+        baseURI = _newBaseURI;
+    }
 }
