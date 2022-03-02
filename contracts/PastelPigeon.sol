@@ -8,8 +8,8 @@ import "./ERC721Tradable.sol";
  * @title Pigeon NFT
  *
  */
-contract Creature is ERC721Tradable {
-    constructor(address _proxyRegistryAddress) ERC721Tradable("Creature", "OSC", _proxyRegistryAddress) {}
+contract PastelPigeon is ERC721Tradable {
+    constructor(address _proxyRegistryAddress) ERC721Tradable("Pastel Pigeon", "PPGN", _proxyRegistryAddress) {}
 
     string public baseURI;
 
