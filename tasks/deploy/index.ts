@@ -1,1 +1,1 @@
-import "./pastelpigeon";
+import "./PastelSmartMintCollection";
