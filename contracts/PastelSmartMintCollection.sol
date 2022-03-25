@@ -10,7 +10,8 @@ import "@openzeppelin/contracts/utils/Counters.sol";
  * @title PastelSmartMintCollection
  *
  */
-contract PastelSmartMintCollection is ERC721 {
+
+contract PastelSmartMintCollection is ERC721, Ownable {
     using Counters for Counters.Counter;
 
     string public baseURI;
@@ -35,15 +36,26 @@ contract PastelSmartMintCollection is ERC721 {
         _nextTokenId.increment();
     }
 
+    function mint() public onlyOwner {
+        require(totalSupply() <= maxSupply, "all items minted!");
+        uint256 currentTokenId = _nextTokenId.current();
+        _nextTokenId.increment();
+        _safeMint(msg.sender, currentTokenId);
+    }
+
+    function setBaseTokenURI(string memory _uri) public onlyOwner {
+        baseURI = _uri;
+    }
+
     function tokenURI(uint256 _tokenId) public view override returns (string memory) {
         return string(abi.encodePacked(baseURI, Strings.toString(_tokenId)));
     }
 
-    function setBaseTokenURI(string memory _uri) public {
-        baseURI = _uri;
-    }
-
     function baseTokenURI() public view returns (string memory) {
         return baseURI;
+    }
+
+    function totalSupply() public view returns (uint256) {
+        return _nextTokenId.current() - 1;
     }
 }
