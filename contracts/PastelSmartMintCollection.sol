@@ -47,6 +47,11 @@ contract PastelSmartMintCollection is ERC721, Ownable {
         baseURI = _uri;
     }
 
+    function setMaxSupply(uint256 _maxSupply) public onlyOwner {
+        require(totalSupply() <= maxSupply, "Invalid max supply!");
+        maxSupply = _maxSupply;
+    }
+
     function tokenURI(uint256 _tokenId) public view override returns (string memory) {
         return string(abi.encodePacked(baseURI, Strings.toString(_tokenId)));
     }
