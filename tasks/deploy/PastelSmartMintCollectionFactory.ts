@@ -1,7 +1,7 @@
 import { task } from "hardhat/config";
 import { TaskArguments } from "hardhat/types";
 
-import { PastelSmartMintCollectionFactory } from "../../src/types/PastelSmartMintCollectionFactoryFactory";
+import { PastelSmartMintCollectionFactory } from "../../src/types/PastelSmartMintCollectionFactory";
 import { PastelSmartMintCollectionFactory__factory } from "../../src/types/factories/PastelSmartMintCollectionFactory__factory";
 
 task("deploy:PastelSmartMintCollectionFactory").setAction(async function (taskArguments: TaskArguments, { ethers }) {
