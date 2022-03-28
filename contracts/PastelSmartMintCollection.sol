@@ -36,11 +36,13 @@ contract PastelSmartMintCollection is ERC721, Ownable {
         _nextTokenId.increment();
     }
 
-    function mint() public onlyOwner {
-        require(totalSupply() <= maxSupply, "all items minted!");
-        uint256 currentTokenId = _nextTokenId.current();
-        _nextTokenId.increment();
-        _safeMint(msg.sender, currentTokenId);
+    function ownerMint(address _to, uint256 _mintAmount) public onlyOwner {
+        require(_mintAmount + totalSupply() <= maxSupply, "all items minted!");
+
+        for (uint256 i = 0; i < _mintAmount; i++) {
+            _safeMint(_to, _nextTokenId.current());
+            _nextTokenId.increment();
+        }
     }
 
     function setBaseTokenURI(string memory _uri) public onlyOwner {
