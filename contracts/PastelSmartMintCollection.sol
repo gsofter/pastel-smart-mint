@@ -37,7 +37,8 @@ contract PastelSmartMintCollection is ERC721, Ownable {
     }
 
     function ownerMint(address _to, uint256 _mintAmount) public onlyOwner {
-        require(_mintAmount + totalSupply() <= maxSupply, "all items minted!");
+        require(_mintAmount + totalSupply() <= maxSupply, "all items minted");
+        require(_mintAmount >= 1, "invalid mint amount");
 
         for (uint256 i = 0; i < _mintAmount; i++) {
             _safeMint(_to, _nextTokenId.current());
@@ -50,11 +51,12 @@ contract PastelSmartMintCollection is ERC721, Ownable {
     }
 
     function setMaxSupply(uint256 _maxSupply) public onlyOwner {
-        require(totalSupply() <= maxSupply, "Invalid max supply!");
+        require(totalSupply() <= maxSupply, "invalid max supply");
         maxSupply = _maxSupply;
     }
 
     function tokenURI(uint256 _tokenId) public view override returns (string memory) {
+        require(_exists(_tokenId), "nonexistent token");
         return string(abi.encodePacked(baseURI, Strings.toString(_tokenId)));
     }
 
