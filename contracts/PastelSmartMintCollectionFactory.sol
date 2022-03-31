@@ -13,10 +13,11 @@ contract PastelSmartMintCollectionFactory is Ownable {
     function createCollection(
         string memory _name,
         string memory _symbol,
-        string memory _tokenURI,
+        string memory _baseURI,
         uint256 _maxSupply
     ) public onlyOwner {
-        PastelSmartMintCollection newCollection = new PastelSmartMintCollection(_name, _symbol, _tokenURI, _maxSupply);
+        PastelSmartMintCollection newCollection = new PastelSmartMintCollection();
+        newCollection.initialize(_name, _symbol, _baseURI, _maxSupply);
         newCollection.transferOwnership(msg.sender);
         psmCollections.push(newCollection);
         emit CollectionCreated(address(newCollection), _name, _symbol);

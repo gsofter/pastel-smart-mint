@@ -2,17 +2,20 @@
 
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/StringsUpgradeable.sol";
 
 /**
  * @title PastelSmartMintCollection
  *
  */
 
-contract PastelSmartMintCollection is ERC721, Ownable {
-    using Counters for Counters.Counter;
+contract PastelSmartMintCollection is Initializable, UUPSUpgradeable, ERC721Upgradeable, OwnableUpgradeable {
+    using CountersUpgradeable for CountersUpgradeable.Counter;
 
     string public baseURI;
     uint256 public maxSupply;
@@ -22,19 +25,22 @@ contract PastelSmartMintCollection is ERC721, Ownable {
      * We track the nextTokenId instead of the currentTokenId to save users on gas costs.
      * Read more about it here: https://shiny.mirror.xyz/OUampBbIz9ebEicfGnQf5At_ReMHlZy0tB4glb9xQ0E
      */
-    Counters.Counter private _nextTokenId;
+    CountersUpgradeable.Counter private _nextTokenId;
 
-    constructor(
+    function initialize(
         string memory _name,
         string memory _symbol,
         string memory _baseURI,
         uint256 _maxSupply
-    ) ERC721(_name, _symbol) {
+    ) public initializer {
+        __ERC721_init(_name, _symbol);
         baseURI = _baseURI;
         maxSupply = _maxSupply;
         // nextTokenId is initialized to 1, since starting at 0 leads to higher gas cost for the first minter
         _nextTokenId.increment();
     }
+
+    function _authorizeUpgrade(address) internal override onlyOwner {}
 
     function ownerMint(address _to, uint256 _mintAmount) public onlyOwner {
         require(_mintAmount + totalSupply() <= maxSupply, "all items minted");
@@ -57,7 +63,7 @@ contract PastelSmartMintCollection is ERC721, Ownable {
 
     function tokenURI(uint256 _tokenId) public view override returns (string memory) {
         require(_exists(_tokenId), "nonexistent token");
-        return string(abi.encodePacked(baseURI, Strings.toString(_tokenId)));
+        return string(abi.encodePacked(baseURI, StringsUpgradeable.toString(_tokenId)));
     }
 
     function baseTokenURI() public view returns (string memory) {

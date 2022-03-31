@@ -7,17 +7,18 @@ import { PastelSmartMintCollection__factory } from "../../src/types/factories/Pa
 task("deploy:PastelSmartMintCollection")
   .addParam("name", "Pastel Smart Mint collection name")
   .addParam("symbol", "Pastel Smart Mint collection symbol")
-  .setAction(async function (taskArguments: TaskArguments, { ethers }) {
+  .setAction(async function (taskArguments: TaskArguments, { ethers, upgrades }) {
     const collectionFactory: PastelSmartMintCollection__factory = <PastelSmartMintCollection__factory>(
       await ethers.getContractFactory("PastelSmartMintCollection")
     );
+
     const pastelSmartMintCollection: PastelSmartMintCollection = <PastelSmartMintCollection>(
-      await collectionFactory.deploy(
+      await upgrades.deployProxy(collectionFactory, [
         taskArguments.name,
         taskArguments.symbol,
         "ipfs://Qmdt2pqCLefbM9hdRuvxyf5PtzBxvK2No4w5xVXU89GwKi/",
         100,
-      )
+      ])
     );
     await pastelSmartMintCollection.deployed();
     console.log("PastelSmartMintCollection deployed to: ", pastelSmartMintCollection.address);
