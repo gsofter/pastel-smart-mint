@@ -2,18 +2,20 @@
 
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC721/ERC721Upgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/token/ERC721/extensions/ERC721URIStorageUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol";
 
 /**
  * @title PastelSmartMintDrop
  *
  */
 
-contract PastelSmartMintDrop is ERC721URIStorage, Ownable {
-    using Counters for Counters.Counter;
+contract PastelSmartMintDrop is Initializable, UUPSUpgradeable, ERC721URIStorageUpgradeable, OwnableUpgradeable {
+    using CountersUpgradeable for CountersUpgradeable.Counter;
 
     string public baseURI;
     uint256 public maxSupply;
@@ -24,19 +26,22 @@ contract PastelSmartMintDrop is ERC721URIStorage, Ownable {
      * We track the nextTokenId instead of the currentTokenId to save users on gas costs.
      * Read more about it here: https://shiny.mirror.xyz/OUampBbIz9ebEicfGnQf5At_ReMHlZy0tB4glb9xQ0E
      */
-    Counters.Counter private _nextTokenId;
+    CountersUpgradeable.Counter private _nextTokenId;
 
-    constructor(
+    function initialize(
         string memory _name,
         string memory _symbol,
         string memory _baseURI,
         uint256 _maxSupply
-    ) ERC721(_name, _symbol) {
+    ) public initializer {
+        __ERC721_init(_name, _symbol);
         baseURI = _baseURI;
         maxSupply = _maxSupply;
         // nextTokenId is initialized to 1, since starting at 0 leads to higher gas cost for the first minter
         _nextTokenId.increment();
     }
+
+    function _authorizeUpgrade(address) internal override onlyOwner {}
 
     function mint(string memory _tokenURI) public payable {
         require(totalSupply() + 1 <= maxSupply, "all items minted!");
