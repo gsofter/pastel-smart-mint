@@ -5,9 +5,9 @@ pragma solidity ^0.8.4;
 import "./PastelSmartMintDrop.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-contract PastelSmartMintDropFactory is Initializable, UUPSUpgradeable, Ownable {
+contract PastelSmartMintDropFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     PastelSmartMintDrop[] public psmDrops;
 
     event DropCreated(address indexed _dropAddress, string _name, string _symbol);
