@@ -3,12 +3,18 @@
 pragma solidity ^0.8.4;
 
 import "./PastelSmartMintCollection.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 
-contract PastelSmartMintCollectionFactory is Ownable {
+contract PastelSmartMintCollectionFactory is Initializable, UUPSUpgradeable, OwnableUpgradeable {
     PastelSmartMintCollection[] public psmCollections;
 
     event CollectionCreated(address indexed _collectionAddress, string _name, string _symbol);
+
+    function initialize() public initializer {}
+
+    function _authorizeUpgrade(address) internal override onlyOwner {}
 
     function createCollection(
         string memory _name,

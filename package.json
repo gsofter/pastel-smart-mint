@@ -75,6 +75,7 @@
     "coverage": "yarn typechain && hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && yarn typechain",
     "deploy:collection-sample": "hardhat deploy:PastelSmartMintCollection",
     "deploy:collection-factory": "hardhat deploy:PastelSmartMintCollectionFactory",
+    "upgrade:collection-factory": "hardhat upgrade:PastelSmartMintCollectionFactory",
     "deploy:drop-factory": "hardhat deploy:PastelSmartMintDropFactory",
     "lint": "yarn lint:sol && yarn lint:ts && yarn prettier:check",
     "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",

@@ -10,6 +10,16 @@
       "address": "0xf3FDA796797B1b09ad89F1368747e2ea68e6a041",
       "txHash": "0xffd9e5a0a2b76e36c9bf099228ed38aa477e50ab56df9729a95a5ffa6ed3a29b",
       "kind": "uups"
+    },
+    {
+      "address": "0x837C3417882a039b8e8A81c02E05CC00926d68Cd",
+      "txHash": "0x946724ef9339ccbbb2e8b2ed6c5ded29c30ec4d0f098298f29a42b5e3a8b7e15",
+      "kind": "uups"
+    },
+    {
+      "address": "0x9b5183C5B16858Db16769278142d06a5DF2af6C6",
+      "txHash": "0xcf736e86b3c0809210b25d0cffd9777df9dc7ff5ae4f456377db11dcdc16526f",
+      "kind": "uups"
     }
   ],
   "impls": {
@@ -215,6 +225,108 @@
               }
             ],
             "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          }
+        }
+      }
+    },
+    "0cfa4c886ff67fbfcf16866a355e6513537df3595120a6a002541c9d91349440": {
+      "address": "0x9b9E60977424630D167DA07D9Cb8E4b654492329",
+      "txHash": "0x115317c738aa464627108d8e3ce08b08e7fac688073039ea6d866d93a0fccfd7",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:39"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:44"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ERC1967UpgradeUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\ERC1967\\ERC1967UpgradeUpgradeable.sol:211"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "UUPSUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\UUPSUpgradeable.sol:107"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:36"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "151",
+            "type": "t_address",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\OwnableUpgradeable.sol:22"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "152",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "OwnableUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\OwnableUpgradeable.sol:87"
+          },
+          {
+            "label": "psmCollections",
+            "offset": 0,
+            "slot": "201",
+            "type": "t_array(t_contract(PastelSmartMintCollection)2654)dyn_storage",
+            "contract": "PastelSmartMintCollectionFactory",
+            "src": "contracts\\PastelSmartMintCollectionFactory.sol:11"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_contract(PastelSmartMintCollection)2654)dyn_storage": {
+            "label": "contract PastelSmartMintCollection[]",
+            "numberOfBytes": "32"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_contract(PastelSmartMintCollection)2654": {
+            "label": "contract PastelSmartMintCollection",
+            "numberOfBytes": "20"
           },
           "t_uint256": {
             "label": "uint256",
