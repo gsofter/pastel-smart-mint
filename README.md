@@ -1,6 +1,58 @@
-# Solidity Template
+# Pastel Smart Mint Contracts
 
-My favorite setup for writing Solidity smart contracts.
+All contracts have been built as upgradable contracts using UUPS proxy pattern.
+Check [UUPSUpgradable](https://docs.openzeppelin.com/contracts/4.x/api/proxy#UUPSUpgradeable) on openzeppelin.
+
+## Contracts
+
+### PastelSmartMintCollection
+
+Proxiable **ERC721** collection contract. Provide `ownerMint` to allow minting for only owner.
+
+### PastelSmartMintCollectionFactory
+
+Proxiable contract to issue **PastelSmartMintCollection** contract.
+Owner can call `createCollection` to create collection contract.
+
+### PastelSmartMintDrop
+
+Proxiable **ERC721** collection contract. It provide `mint` function to allow minting for any user.
+By default minting price is **0.01 ETH** and owner can call `setPrice` to set new price.
+
+### PastelSmartMintDropFactory
+
+Proxiable contract to issue **PastelSmartMintDrop** contract.
+Owner can call `createDrop` to create collection contract.
+
+## Deploy scripts
+
+**Deploy scripts**
+
+```
+// deploy sample collection contract
+yarn deloy:collection-sample --network <network_name>
+
+// deploy collection factory contract
+yarn deloy:collection-factory --network <network_name>
+
+// deploy sample drop contract
+yarn deloy:drop-sample --network <network_name>
+
+// deploy drop factory contract
+yarn deloy:drop-factory --network <network_name>
+```
+
+**Upgrade scripts**
+
+```
+// deploy collection factory contract
+yarn upgrade:collection-factory --address <proxy_address> --network <network_name>
+
+// deploy drop factory contract
+yarn upgrade:drop-factory --address <proxy_address> --network <network_name>
+```
+
+## Tech stacks
 
 - [Hardhat](https://github.com/nomiclabs/hardhat): compile and run the smart contracts on a local development network
 - [TypeChain](https://github.com/ethereum-ts/TypeChain): generate TypeScript types for smart contracts
