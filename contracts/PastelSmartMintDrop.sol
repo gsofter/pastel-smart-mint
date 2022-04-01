@@ -19,7 +19,7 @@ contract PastelSmartMintDrop is Initializable, UUPSUpgradeable, ERC721URIStorage
 
     string public baseURI;
     uint256 public maxSupply;
-    uint256 public price = 0.01 ether;
+    uint256 public price;
 
     /**
      * We rely on the OZ Counter util to keep track of the next available ID.
@@ -37,6 +37,7 @@ contract PastelSmartMintDrop is Initializable, UUPSUpgradeable, ERC721URIStorage
         __ERC721_init(_name, _symbol);
         baseURI = _baseURI;
         maxSupply = _maxSupply;
+        price = 0.01 ether;
         // nextTokenId is initialized to 1, since starting at 0 leads to higher gas cost for the first minter
         _nextTokenId.increment();
     }
