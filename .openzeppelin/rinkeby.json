@@ -35,6 +35,11 @@
       "address": "0x0582C5e3C6D410b035a85311AeD40a922bFEddAC",
       "txHash": "0x1faa548904caaaa0c317b7efafe6f03b1aaa9bd73d0c2d4b40305ffabdbbb5f7",
       "kind": "uups"
+    },
+    {
+      "address": "0xB975992566df2E924F53Ef7Df553c6593650Ae7C", // PastelSmartMintCollectionFactory
+      "txHash": "0x6de6298e7d84f0d1d4d1e311ecc6b89b7e9ba9d4378b505b9f2ce2664e5b7fb1",
+      "kind": "uups"
     }
   ],
   "impls": {

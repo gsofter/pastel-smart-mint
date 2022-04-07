@@ -16,7 +16,7 @@ export function shouldBehaveLikePastelSmartMintCollectionFactory(): void {
     expect(deployedCollection).to.not.equal(null);
   });
 
-  it("createCollection should be reverted for admin", async function () {
+  it("createCollection should be reverted for Alice", async function () {
     const signedFactory = await this.collectionFactory.connect(this.signers.alice);
 
     await expect(signedFactory.createCollection("TEST Collection", "TEST", "base_uri", 10)).to.revertedWith(

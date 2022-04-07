@@ -4,8 +4,8 @@ export function shouldBehaveLikePastelSmartMintCollection(): void {
   it("collection initialization", async function () {
     const signedCollection = await this.collection.connect(this.signers.admin);
 
-    expect(await signedCollection.symbol()).to.equal("TEST");
-    expect(await signedCollection.maxSupply()).to.equal(10);
+    expect(await signedCollection.symbol()).to.equal("SCOLLECTION");
+    expect(await signedCollection.maxSupply()).to.equal(100);
     expect(await signedCollection.baseTokenURI()).to.equal("base_uri");
   });
 

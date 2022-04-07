@@ -4,8 +4,8 @@ export function shouldBehaveLikePastelSmartMintDrop(): void {
   it("drop initialization", async function () {
     const signedDrop = await this.drop.connect(this.signers.admin);
 
-    expect(await signedDrop.symbol()).to.equal("TEST");
-    expect(await signedDrop.maxSupply()).to.equal(10);
+    expect(await signedDrop.symbol()).to.equal("SDROP");
+    expect(await signedDrop.maxSupply()).to.equal(100);
     expect(await signedDrop.baseTokenURI()).to.equal("base_uri");
   });
 
