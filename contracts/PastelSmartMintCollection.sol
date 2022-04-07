@@ -34,6 +34,7 @@ contract PastelSmartMintCollection is Initializable, UUPSUpgradeable, ERC721Upgr
         uint256 _maxSupply
     ) public initializer {
         __ERC721_init(_name, _symbol);
+        __Ownable_init();
         baseURI = _baseURI;
         maxSupply = _maxSupply;
         // nextTokenId is initialized to 1, since starting at 0 leads to higher gas cost for the first minter

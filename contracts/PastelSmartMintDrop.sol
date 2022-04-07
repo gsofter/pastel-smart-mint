@@ -35,6 +35,7 @@ contract PastelSmartMintDrop is Initializable, UUPSUpgradeable, ERC721URIStorage
         uint256 _maxSupply
     ) public initializer {
         __ERC721_init(_name, _symbol);
+        __Ownable_init();
         baseURI = _baseURI;
         maxSupply = _maxSupply;
         price = 0.01 ether;

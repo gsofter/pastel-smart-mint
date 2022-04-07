@@ -12,7 +12,9 @@ contract PastelSmartMintDropFactory is Initializable, UUPSUpgradeable, OwnableUp
 
     event DropCreated(address indexed _dropAddress, string _name, string _symbol);
 
-    function initialize() public initializer {}
+    function initialize() public initializer {
+        __Ownable_init();
+    }
 
     function _authorizeUpgrade(address) internal override onlyOwner {}
 

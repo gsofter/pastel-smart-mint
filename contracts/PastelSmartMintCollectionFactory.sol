@@ -12,7 +12,9 @@ contract PastelSmartMintCollectionFactory is Initializable, UUPSUpgradeable, Own
 
     event CollectionCreated(address indexed _collectionAddress, string _name, string _symbol);
 
-    function initialize() public initializer {}
+    function initialize() public initializer {
+        __Ownable_init();
+    }
 
     function _authorizeUpgrade(address) internal override onlyOwner {}
 
