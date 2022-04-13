@@ -19,7 +19,17 @@ describe("PastelSmartMintDrop", function () {
       await ethers.getContractFactory("PastelSmartMintDrop")
     );
 
-    this.drop = <PastelSmartMintDrop>await upgrades.deployProxy(dropFactory, ["Sample Drop", "SDROP", "base_uri", 100]);
+    this.drop = <PastelSmartMintDrop>(
+      await upgrades.deployProxy(dropFactory, [
+        "Sample Drop",
+        "SDROP",
+        "base_uri",
+        100,
+        5,
+        "0xFFf50b1b9154b0631591DAB746c5Fc8f41Dc44Bd",
+        "0xFFf50b1b9154b0631591DAB746c5Fc8f41Dc44Bd",
+      ])
+    );
     await this.drop.deployed();
   });
 

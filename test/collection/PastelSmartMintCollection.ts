@@ -20,7 +20,15 @@ describe("PastelSmartMintCollection", function () {
     );
 
     this.collection = <PastelSmartMintCollection>(
-      await upgrades.deployProxy(collectionFactory, ["Sample Collection", "SCOLLECTION", "base_uri", 100])
+      await upgrades.deployProxy(collectionFactory, [
+        "Sample Collection",
+        "SCOLLECTION",
+        "base_uri",
+        100,
+        5,
+        "0xFFf50b1b9154b0631591DAB746c5Fc8f41Dc44Bd",
+        "0xFFf50b1b9154b0631591DAB746c5Fc8f41Dc44Bd",
+      ])
     );
     await this.collection.deployed();
   });

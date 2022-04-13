@@ -3,29 +3,29 @@
   "proxies": [
     {
       "address": "0x5Eb664723d304900923F5042a40bcf6FF29acCC1",
-      "txHash": "0x44346c5f30484f21c5a5cee8fbb13fb74e04e64c25b859f44828f96c4e18e2e0",
+      "txHash": "0x67271cb884e3ae8aaaec54fd1e5a39632df8a351e478092d9b27d15580f525c3",
       "kind": "uups"
     },
     {
       "address": "0xf18CD83567CEec5D64d3794c15b933AC94aaF39f",
-      "txHash": "0xa116ca5c8067e98965b5b474c95e74f4765dbffa1e8d7946f1125fb4f27a5cdd",
+      "txHash": "0xa2a5ff2f12cf591b6dce44112c0625326554f9ad44c03f9804be3fb58d4eea57",
       "kind": "uups"
     },
     {
       "address": "0xA9dC2f2B6CDaFa16E8770D8b77d9437D71Aa5005",
-      "txHash": "0xd5ed11a88cc026a94090d9adfb8bec4070cebdea0d3ba8b9cbc8262894274615",
+      "txHash": "0x0e814f869698b7ce28c8a0b7041c8c6a55bc6068de6b8eb8a02fce124f197672",
       "kind": "uups"
     },
     {
       "address": "0xfeea3783515F174739dC5eF2E38D4f515A2D65a0",
-      "txHash": "0x785888ce7d72de9102e02bfc644ddfc3dabc6b9e34295091766fc9e806d9fce8",
+      "txHash": "0x11a1d3be130fe4ddedce1986573b6027bec8812a7beb7fa929a0d75c502fe057",
       "kind": "uups"
     }
   ],
   "impls": {
-    "71ee2e9499d9784b011d7945fcc299a14e263011be380678215cace673352c7d": {
+    "f0de19d1a99e9ce3baa741f25aa1be3b229ef314b0381090da2d4e27c10cbc4d": {
       "address": "0xbA5BDE8D0c0aC6F4a9c8F99044c372659bab9e43",
-      "txHash": "0x510ab201d0797b370c046e7742a88170b8b0033cff0c623002128a6e998f5193",
+      "txHash": "0x8c4f88d4f45946b8a92ab64ebe9643229b439851a8d5d659f42113871012cb58",
       "layout": {
         "storage": [
           {
@@ -165,12 +165,36 @@
             "src": "contracts\\PastelSmartMintCollection.sol:21"
           },
           {
-            "label": "_nextTokenId",
+            "label": "royaltiesPercentage",
             "offset": 0,
             "slot": "303",
-            "type": "t_struct(Counter)2065_storage",
+            "type": "t_uint256",
             "contract": "PastelSmartMintCollection",
-            "src": "contracts\\PastelSmartMintCollection.sol:28"
+            "src": "contracts\\PastelSmartMintCollection.sol:22"
+          },
+          {
+            "label": "primaryWallet",
+            "offset": 0,
+            "slot": "304",
+            "type": "t_address",
+            "contract": "PastelSmartMintCollection",
+            "src": "contracts\\PastelSmartMintCollection.sol:23"
+          },
+          {
+            "label": "secondaryWallet",
+            "offset": 0,
+            "slot": "305",
+            "type": "t_address",
+            "contract": "PastelSmartMintCollection",
+            "src": "contracts\\PastelSmartMintCollection.sol:24"
+          },
+          {
+            "label": "_nextTokenId",
+            "offset": 0,
+            "slot": "306",
+            "type": "t_struct(Counter)2213_storage",
+            "contract": "PastelSmartMintCollection",
+            "src": "contracts\\PastelSmartMintCollection.sol:31"
           }
         ],
         "types": {
@@ -214,7 +238,7 @@
             "label": "string",
             "numberOfBytes": "32"
           },
-          "t_struct(Counter)2065_storage": {
+          "t_struct(Counter)2213_storage": {
             "label": "struct CountersUpgradeable.Counter",
             "members": [
               {
@@ -233,9 +257,9 @@
         }
       }
     },
-    "43897151ba6ac7fbdb527370563b4fa919b6d883a00d2fd69b6c68bf82ec07a5": {
+    "82fbf8891d4b9178c82f3cb45ff377b1ed65e9c957856fcfd1ca0f850d213d63": {
       "address": "0xDDABdEe6A4511216AE5B68A02B67F582316FAB6B",
-      "txHash": "0x3c892112d0992fae815a7b7b289767dd1b7d213b90edef4ad9404ba8e88cfa72",
+      "txHash": "0xe0078505c8277557c8c0652f824cfbe4abab190b41a21b3d53a5bfe17fc7fff6",
       "layout": {
         "storage": [
           {
@@ -298,7 +322,7 @@
             "label": "psmCollections",
             "offset": 0,
             "slot": "201",
-            "type": "t_array(t_contract(PastelSmartMintCollection)2657)dyn_storage",
+            "type": "t_array(t_contract(PastelSmartMintCollection)2890)dyn_storage",
             "contract": "PastelSmartMintCollectionFactory",
             "src": "contracts\\PastelSmartMintCollectionFactory.sol:11"
           }
@@ -308,7 +332,7 @@
             "label": "address",
             "numberOfBytes": "20"
           },
-          "t_array(t_contract(PastelSmartMintCollection)2657)dyn_storage": {
+          "t_array(t_contract(PastelSmartMintCollection)2890)dyn_storage": {
             "label": "contract PastelSmartMintCollection[]",
             "numberOfBytes": "32"
           },
@@ -324,7 +348,7 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_contract(PastelSmartMintCollection)2657": {
+          "t_contract(PastelSmartMintCollection)2890": {
             "label": "contract PastelSmartMintCollection",
             "numberOfBytes": "20"
           },
@@ -335,9 +359,9 @@
         }
       }
     },
-    "30c9df24779b99b02e41b8fe558c10efb04cea64e13f3ec026b587bc9934b0c3": {
+    "62d79e9d4e3c839872ff8582362f714e39b6c2ba6aa6ff13b7f319455034d915": {
       "address": "0xD7C9CC1aC4C75bDa32C772d38D892b5783b07026",
-      "txHash": "0x14b51cfdbc9c767e934573a9535918adae19c2606976970b007d6afe661d5cd3",
+      "txHash": "0x0f988742d1e24da3bac3e70080bfa42516493016735006849d96ccc080c10903",
       "layout": {
         "storage": [
           {
@@ -501,12 +525,36 @@
             "src": "contracts\\PastelSmartMintDrop.sol:22"
           },
           {
-            "label": "_nextTokenId",
+            "label": "royaltiesPercentage",
             "offset": 0,
             "slot": "354",
+            "type": "t_uint256",
+            "contract": "PastelSmartMintDrop",
+            "src": "contracts\\PastelSmartMintDrop.sol:23"
+          },
+          {
+            "label": "primaryWallet",
+            "offset": 0,
+            "slot": "355",
+            "type": "t_address",
+            "contract": "PastelSmartMintDrop",
+            "src": "contracts\\PastelSmartMintDrop.sol:24"
+          },
+          {
+            "label": "secondaryWallet",
+            "offset": 0,
+            "slot": "356",
+            "type": "t_address",
+            "contract": "PastelSmartMintDrop",
+            "src": "contracts\\PastelSmartMintDrop.sol:25"
+          },
+          {
+            "label": "_nextTokenId",
+            "offset": 0,
+            "slot": "357",
             "type": "t_struct(Counter)2213_storage",
             "contract": "PastelSmartMintDrop",
-            "src": "contracts\\PastelSmartMintDrop.sol:29"
+            "src": "contracts\\PastelSmartMintDrop.sol:32"
           }
         ],
         "types": {
@@ -573,9 +621,9 @@
         }
       }
     },
-    "2445f66d00909f1fedde42c0ddcae9b9029f2e0090c922f4ab12297a2998a909": {
+    "8f7064086bc1d46564956d9385c0e509872d062c2813f6c11f797d214552ffec": {
       "address": "0xe068FfA0c5D7941D9eeBB4988Da2684c35F34D09",
-      "txHash": "0x36cb7fce8130d9d2c08e5070b5decdc04ea1ee281ec8f1419d8d07d8bd5f38d6",
+      "txHash": "0xf1231f9312634af8930524cea8eb17d25a5b432158b623e6e35f08d8eee7abc2",
       "layout": {
         "storage": [
           {
@@ -638,7 +686,7 @@
             "label": "psmDrops",
             "offset": 0,
             "slot": "201",
-            "type": "t_array(t_contract(PastelSmartMintDrop)3091)dyn_storage",
+            "type": "t_array(t_contract(PastelSmartMintDrop)3270)dyn_storage",
             "contract": "PastelSmartMintDropFactory",
             "src": "contracts\\PastelSmartMintDropFactory.sol:11"
           }
@@ -648,7 +696,7 @@
             "label": "address",
             "numberOfBytes": "20"
           },
-          "t_array(t_contract(PastelSmartMintDrop)3091)dyn_storage": {
+          "t_array(t_contract(PastelSmartMintDrop)3270)dyn_storage": {
             "label": "contract PastelSmartMintDrop[]",
             "numberOfBytes": "32"
           },
@@ -664,7 +712,7 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_contract(PastelSmartMintDrop)3091": {
+          "t_contract(PastelSmartMintDrop)3270": {
             "label": "contract PastelSmartMintDrop",
             "numberOfBytes": "20"
           },
