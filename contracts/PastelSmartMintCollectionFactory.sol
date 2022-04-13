@@ -22,10 +22,21 @@ contract PastelSmartMintCollectionFactory is Initializable, UUPSUpgradeable, Own
         string memory _name,
         string memory _symbol,
         string memory _baseURI,
-        uint256 _maxSupply
+        uint256 _maxSupply,
+        uint256 _royaltiesPercentage,
+        address _primaryWallet,
+        address _secondaryWallet
     ) public onlyOwner {
         PastelSmartMintCollection newCollection = new PastelSmartMintCollection();
-        newCollection.initialize(_name, _symbol, _baseURI, _maxSupply);
+        newCollection.initialize(
+            _name,
+            _symbol,
+            _baseURI,
+            _maxSupply,
+            _royaltiesPercentage,
+            _primaryWallet,
+            _secondaryWallet
+        );
         newCollection.transferOwnership(msg.sender);
         psmCollections.push(newCollection);
         emit CollectionCreated(address(newCollection), _name, _symbol);

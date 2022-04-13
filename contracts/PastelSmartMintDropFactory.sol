@@ -22,10 +22,21 @@ contract PastelSmartMintDropFactory is Initializable, UUPSUpgradeable, OwnableUp
         string memory _name,
         string memory _symbol,
         string memory _baseURI,
-        uint256 _maxSupply
+        uint256 _maxSupply,
+        uint256 _royaltiesPercentage,
+        address _primaryWallet,
+        address _secondaryWallet
     ) public onlyOwner {
         PastelSmartMintDrop newDrop = new PastelSmartMintDrop();
-        newDrop.initialize(_name, _symbol, _baseURI, _maxSupply);
+        newDrop.initialize(
+            _name,
+            _symbol,
+            _baseURI,
+            _maxSupply,
+            _royaltiesPercentage,
+            _primaryWallet,
+            _secondaryWallet
+        );
         newDrop.transferOwnership(msg.sender);
         psmDrops.push(newDrop);
         emit DropCreated(address(newDrop), _name, _symbol);

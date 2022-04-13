@@ -20,6 +20,9 @@ contract PastelSmartMintDrop is Initializable, UUPSUpgradeable, ERC721URIStorage
     string public baseURI;
     uint256 public maxSupply;
     uint256 public price;
+    uint256 public royaltiesPercentage;
+    address public primaryWallet;
+    address public secondaryWallet;
 
     /**
      * We rely on the OZ Counter util to keep track of the next available ID.
@@ -32,13 +35,19 @@ contract PastelSmartMintDrop is Initializable, UUPSUpgradeable, ERC721URIStorage
         string memory _name,
         string memory _symbol,
         string memory _baseURI,
-        uint256 _maxSupply
+        uint256 _maxSupply,
+        uint256 _royaltiesPercentage,
+        address _primaryWallet,
+        address _secondaryWallet
     ) public initializer {
         __ERC721_init(_name, _symbol);
         __Ownable_init();
         baseURI = _baseURI;
         maxSupply = _maxSupply;
         price = 0.01 ether;
+        royaltiesPercentage = _royaltiesPercentage;
+        primaryWallet = _primaryWallet;
+        secondaryWallet = _secondaryWallet;
         // nextTokenId is initialized to 1, since starting at 0 leads to higher gas cost for the first minter
         _nextTokenId.increment();
     }
@@ -69,11 +78,28 @@ contract PastelSmartMintDrop is Initializable, UUPSUpgradeable, ERC721URIStorage
         price = _price;
     }
 
+    function setRoyaltiesPercentage(uint256 _royaltiesPercentage) public onlyOwner {
+        royaltiesPercentage = _royaltiesPercentage;
+    }
+
+    function setPrimaryWallet(address _primaryWallet) public onlyOwner {
+        primaryWallet = _primaryWallet;
+    }
+
+    function setSecondaryWallet(address _secondaryWallet) public onlyOwner {
+        secondaryWallet = _secondaryWallet;
+    }
+
     function baseTokenURI() public view returns (string memory) {
         return baseURI;
     }
 
     function totalSupply() public view returns (uint256) {
         return _nextTokenId.current() - 1;
+    }
+
+    function royaltyInfo(uint256 _tokenId, uint256 _salePrice) external view returns (address, uint256) {
+        uint256 _royalties = (_salePrice * royaltiesPercentage) / 100;
+        return (secondaryWallet, _royalties);
     }
 }

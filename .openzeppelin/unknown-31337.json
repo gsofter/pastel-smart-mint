@@ -2,50 +2,30 @@
   "manifestVersion": "3.2",
   "proxies": [
     {
-      "address": "0x053F6E50fC6F89F7d01d2FfDAB47D805EAE27e0d",
-      "txHash": "0x2b9dbd1e02261453003374064bc2514861abe107e338df1121cbd46eeed18152",
+      "address": "0x5Eb664723d304900923F5042a40bcf6FF29acCC1",
+      "txHash": "0x44346c5f30484f21c5a5cee8fbb13fb74e04e64c25b859f44828f96c4e18e2e0",
       "kind": "uups"
     },
     {
-      "address": "0xf3FDA796797B1b09ad89F1368747e2ea68e6a041",
-      "txHash": "0xffd9e5a0a2b76e36c9bf099228ed38aa477e50ab56df9729a95a5ffa6ed3a29b",
+      "address": "0xf18CD83567CEec5D64d3794c15b933AC94aaF39f",
+      "txHash": "0xa116ca5c8067e98965b5b474c95e74f4765dbffa1e8d7946f1125fb4f27a5cdd",
       "kind": "uups"
     },
     {
-      "address": "0x837C3417882a039b8e8A81c02E05CC00926d68Cd",
-      "txHash": "0x946724ef9339ccbbb2e8b2ed6c5ded29c30ec4d0f098298f29a42b5e3a8b7e15",
+      "address": "0xA9dC2f2B6CDaFa16E8770D8b77d9437D71Aa5005",
+      "txHash": "0xd5ed11a88cc026a94090d9adfb8bec4070cebdea0d3ba8b9cbc8262894274615",
       "kind": "uups"
     },
     {
-      "address": "0x9b5183C5B16858Db16769278142d06a5DF2af6C6",
-      "txHash": "0xcf736e86b3c0809210b25d0cffd9777df9dc7ff5ae4f456377db11dcdc16526f",
-      "kind": "uups"
-    },
-    {
-      "address": "0x11b289A752364FC8Dd90Ca46e2dae3207152f7f4",
-      "txHash": "0x83ba2c7075a4cea0979e44044933809a5a4cbc72bc1f81bd6300217b0e215081",
-      "kind": "uups"
-    },
-    {
-      "address": "0x39f98155ad01Fd160a63fF4aDd64c27b7EfDad0b",
-      "txHash": "0xcd901272d1882685c75c802e55fec7b23f981b483a168a04cbb8c7936dd9b530",
-      "kind": "uups"
-    },
-    {
-      "address": "0x0582C5e3C6D410b035a85311AeD40a922bFEddAC",
-      "txHash": "0x1faa548904caaaa0c317b7efafe6f03b1aaa9bd73d0c2d4b40305ffabdbbb5f7",
-      "kind": "uups"
-    },
-    {
-      "address": "0xB975992566df2E924F53Ef7Df553c6593650Ae7C", // PastelSmartMintCollectionFactory
-      "txHash": "0x6de6298e7d84f0d1d4d1e311ecc6b89b7e9ba9d4378b505b9f2ce2664e5b7fb1",
+      "address": "0xfeea3783515F174739dC5eF2E38D4f515A2D65a0",
+      "txHash": "0x785888ce7d72de9102e02bfc644ddfc3dabc6b9e34295091766fc9e806d9fce8",
       "kind": "uups"
     }
   ],
   "impls": {
-    "4bbcdbc0a00728e349a0a1dae372d42d57f914e37085b43b134fd019d3b45602": {
-      "address": "0x881FBBB7FED841928907B036f02D4F94007B42A4",
-      "txHash": "0x3bac336516d561f1afd0b6ef51a23d6cf0102178d67d000906c993980457f2ca",
+    "71ee2e9499d9784b011d7945fcc299a14e263011be380678215cace673352c7d": {
+      "address": "0xbA5BDE8D0c0aC6F4a9c8F99044c372659bab9e43",
+      "txHash": "0x510ab201d0797b370c046e7742a88170b8b0033cff0c623002128a6e998f5193",
       "layout": {
         "storage": [
           {
@@ -253,9 +233,9 @@
         }
       }
     },
-    "0cfa4c886ff67fbfcf16866a355e6513537df3595120a6a002541c9d91349440": {
-      "address": "0x9b9E60977424630D167DA07D9Cb8E4b654492329",
-      "txHash": "0x115317c738aa464627108d8e3ce08b08e7fac688073039ea6d866d93a0fccfd7",
+    "43897151ba6ac7fbdb527370563b4fa919b6d883a00d2fd69b6c68bf82ec07a5": {
+      "address": "0xDDABdEe6A4511216AE5B68A02B67F582316FAB6B",
+      "txHash": "0x3c892112d0992fae815a7b7b289767dd1b7d213b90edef4ad9404ba8e88cfa72",
       "layout": {
         "storage": [
           {
@@ -318,7 +298,7 @@
             "label": "psmCollections",
             "offset": 0,
             "slot": "201",
-            "type": "t_array(t_contract(PastelSmartMintCollection)2654)dyn_storage",
+            "type": "t_array(t_contract(PastelSmartMintCollection)2657)dyn_storage",
             "contract": "PastelSmartMintCollectionFactory",
             "src": "contracts\\PastelSmartMintCollectionFactory.sol:11"
           }
@@ -328,7 +308,7 @@
             "label": "address",
             "numberOfBytes": "20"
           },
-          "t_array(t_contract(PastelSmartMintCollection)2654)dyn_storage": {
+          "t_array(t_contract(PastelSmartMintCollection)2657)dyn_storage": {
             "label": "contract PastelSmartMintCollection[]",
             "numberOfBytes": "32"
           },
@@ -344,7 +324,7 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_contract(PastelSmartMintCollection)2654": {
+          "t_contract(PastelSmartMintCollection)2657": {
             "label": "contract PastelSmartMintCollection",
             "numberOfBytes": "20"
           },
@@ -355,9 +335,9 @@
         }
       }
     },
-    "6d1c7f086955daa98f1cf9341c6b524f7ef35e6e8a26c7818a53fde93b6de26d": {
-      "address": "0x802BD1Da6F33e3Fae76A8e37DF5c75589abB4673",
-      "txHash": "0xf4f1a05ebc9f66ade6075b633cc27473791e791d5e3b26cf94cac1c934669b3b",
+    "30c9df24779b99b02e41b8fe558c10efb04cea64e13f3ec026b587bc9934b0c3": {
+      "address": "0xD7C9CC1aC4C75bDa32C772d38D892b5783b07026",
+      "txHash": "0x14b51cfdbc9c767e934573a9535918adae19c2606976970b007d6afe661d5cd3",
       "layout": {
         "storage": [
           {
@@ -593,9 +573,9 @@
         }
       }
     },
-    "6fd913db3a535bdb7ef635f403a0a5742c2984c8804abf9c53e35d0d3f2eec4e": {
-      "address": "0xbCd6433d799c780a36FdF5A791423e5e233c8c7d",
-      "txHash": "0xf2c80cb74ea5fcf08e57ef6f70fb2640316e9b2aa02ab0556f4b97452c745180",
+    "2445f66d00909f1fedde42c0ddcae9b9029f2e0090c922f4ab12297a2998a909": {
+      "address": "0xe068FfA0c5D7941D9eeBB4988Da2684c35F34D09",
+      "txHash": "0x36cb7fce8130d9d2c08e5070b5decdc04ea1ee281ec8f1419d8d07d8bd5f38d6",
       "layout": {
         "storage": [
           {
@@ -658,7 +638,7 @@
             "label": "psmDrops",
             "offset": 0,
             "slot": "201",
-            "type": "t_array(t_contract(PastelSmartMintDrop)3082)dyn_storage",
+            "type": "t_array(t_contract(PastelSmartMintDrop)3091)dyn_storage",
             "contract": "PastelSmartMintDropFactory",
             "src": "contracts\\PastelSmartMintDropFactory.sol:11"
           }
@@ -668,7 +648,7 @@
             "label": "address",
             "numberOfBytes": "20"
           },
-          "t_array(t_contract(PastelSmartMintDrop)3082)dyn_storage": {
+          "t_array(t_contract(PastelSmartMintDrop)3091)dyn_storage": {
             "label": "contract PastelSmartMintDrop[]",
             "numberOfBytes": "32"
           },
@@ -684,7 +664,7 @@
             "label": "bool",
             "numberOfBytes": "1"
           },
-          "t_contract(PastelSmartMintDrop)3082": {
+          "t_contract(PastelSmartMintDrop)3091": {
             "label": "contract PastelSmartMintDrop",
             "numberOfBytes": "20"
           },

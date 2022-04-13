@@ -15,6 +15,9 @@ task("deploy:PastelSmartMintCollection").setAction(async function (taskArguments
       "SCOLLECTION",
       "ipfs://Qmdt2pqCLefbM9hdRuvxyf5PtzBxvK2No4w5xVXU89GwKi/",
       100,
+      5,
+      "0xFFf50b1b9154b0631591DAB746c5Fc8f41Dc44Bd",
+      "0xFFf50b1b9154b0631591DAB746c5Fc8f41Dc44Bd",
     ])
   );
   await pastelSmartMintCollection.deployed();
